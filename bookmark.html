@@ -33,3 +33,29 @@
     </table>
 </body>
 </html>
+<script>
+     var bookmarklist = JSON.parse(localStorage.getItem("Bookmark-list")) || [];
+     display(bookmarklist)
+
+     function display(bookmarklist){
+        document.querySelector("tbody").innerHTML="";
+    bookmarklist.forEach(function(ele,i){
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.textContent=ele.bookName;
+        var td2 = document.createElement("td");
+        td2.textContent=ele.authorName;
+        var td3 = document.createElement("td");
+        td3.textContent=ele.bookdes;
+        var td4 = document.createElement("td");
+        td4.textContent=ele.date;
+        var td5 = document.createElement("td");
+        td5.textContent=ele.category;
+        var td6 = document.createElement("td");
+        td6.textContent=ele.bookpr;
+    
+        tr.append(td1,td2,td3,td4,td5,td6)
+        document.querySelector("tbody").append(tr)
+    }
+    )}
+</script>

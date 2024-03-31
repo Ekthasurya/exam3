@@ -61,13 +61,15 @@
         td7.textContent="Buy"
         td7.style.backgroundColor="green"
         td7.addEventListener("click",function(){
-            storeData(i)
+            buyData(i)
+            
         })
         var td8 = document.createElement("td");
         td8.textContent="Add"
         td8.style.backgroundColor="red"
         td8.addEventListener("click",function(){
-            storeData(i)
+            bookmarkData(i)
+        
         })
     
         tr.append(td1,td2,td3,td4,td5,td6,td7,td8)
@@ -75,8 +77,16 @@
     })
 }
 
-function storeData(i){
+function buyData(i){
     userArr.splice(i,1)
     displayData(userArr)
+    
 }
+localStorage.setItem("Buy-list",JSON.stringify(userArr));
+function bookmarkData(i){
+    userArr.splice(i,1)
+    displayData(userArr)
+    
+}
+localStorage.setItem("Bookmark-list",JSON.stringify(userArr));
 </script>

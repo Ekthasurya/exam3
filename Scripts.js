@@ -25,6 +25,7 @@ function formData(){
     localStorage.setItem("book-list",JSON.stringify(arr))
 
     displayData(arr)
+    display(arr)
    
 
 }
@@ -58,7 +59,7 @@ function displayData(arr){
             storeData(i)
         })
     
-        tr.append(td1,td2,td3,td4,td5,td6)
+        tr.append(td1,td2,td3,td4,td5,td6,td7,td8)
         document.querySelector("tbody").append(tr)
     })
 }
@@ -67,3 +68,5 @@ function storeData(i){
     arr.splice(i,1)
     displaydata(arr)
 }
+
+
