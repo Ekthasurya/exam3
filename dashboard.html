@@ -36,3 +36,47 @@
     </table>
 </body>
 </html>
+<script>
+     var userArr = JSON.parse(localStorage.getItem("book-list")) || [];
+
+    displayData(userArr)
+
+    function displayData(userArr){
+    document.querySelector("tbody").innerHTML="";
+    userArr.forEach(function(ele,i){
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.textContent=ele.bookName;
+        var td2 = document.createElement("td");
+        td2.textContent=ele.authorName;
+        var td3 = document.createElement("td");
+        td3.textContent=ele.bookdes;
+        var td4 = document.createElement("td");
+        td4.textContent=ele.date;
+        var td5 = document.createElement("td");
+        td5.textContent=ele.category;
+        var td6 = document.createElement("td");
+        td6.textContent=ele.bookpr;
+        var td7 = document.createElement("td");
+        td7.textContent="Buy"
+        td7.style.backgroundColor="green"
+        td7.addEventListener("click",function(){
+            storeData(i)
+        })
+        var td8 = document.createElement("td");
+        td8.textContent="Add"
+        td8.style.backgroundColor="red"
+        td8.addEventListener("click",function(){
+            storeData(i)
+        })
+    
+        tr.append(td1,td2,td3,td4,td5,td6,td7,td8)
+        document.querySelector("tbody").append(tr)
+    })
+}
+
+function storeData(i){
+    userArr.splice(i,1)
+    displayData(userArr)
+}
+</script>
